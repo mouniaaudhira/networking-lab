@@ -1,0 +1,14 @@
+import socket
+TCP_PORT_NO = 5000
+serverSocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+serverSocket.bind(('',TCP_PORT_NO))
+serverSocket.listen(1)
+print ("Welcome: The server is now ready to receive")
+connectionSocket, address = serverSocket.accept()
+while True:
+  sentence = connectionSocket.recv(2048).decode()
+  print('>> ',sentence)
+  Message = input(">> ")
+  connectionSocket.send(Message.encode())
+  if(Message == 'q'):
+    connectionSocket.close()
