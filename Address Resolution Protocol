@@ -1,0 +1,10 @@
+d = {} 
+for x in range(3):  
+ ip =input('Enter new IP address: ')
+ mac = input('Enter new MAC address: ')
+ d[ip] = mac
+print(d)
+print()
+s=input("Enter IP to search: ")
+print()
+print("The MAC address is ",d[s])
